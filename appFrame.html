@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Browser Link Test</title>
+		<script type="text/javascript" src="https://raw.github.com/ConnorDoyle/web-ui-tester/master/web-ui-tester.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#run').click(function() {
+					$('#resultsBox').show();
+					callMap($('#map').val());
+					next();
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<fieldset>
+			<legend>Map</legend>
+			<p>
+				Provide a function (named &quot;map&quot;) that takes a jQuery object
+				as its single parameter and returns a jQuery object.
+			</p>
+			<pre><textarea id="map" rows="5" cols="80">
+// returns a seq containing all link elements
+function map(dom) {
+  return dom.find('a');
+}</textarea></pre>
+		</fieldset>
+		<fieldset>
+			<legend>Reduce</legend>
+			<p> Provide a function (named &quot;reduce&quot;) that takes a jQuery object
+			    as its single parameter.
+			</p>
+			<pre><textarea id="reduce" rows="10" cols="80">
+function reduce(item) {
+  followLink(item);
+  onTestLoad(function() {
+    if (testDoc().length > 0)
+      testResults().append("<li>"+testDoc().find('title').text()+"</li>");
+    testWindow().history.back();
+    next();
+  });
+}</textarea></pre>
+		</fieldset>
+		<input type="button" id="openWindow" value="Open test window" />
+		<input type="button" id="run" value="Run Test" />
+		<div id="resultsBox">
+			<h3>Test Results</h3>
+			<div id="progress"></div>
+			<div id="results"></div>
+		</div>
+
+	</body>
+
+</html>
