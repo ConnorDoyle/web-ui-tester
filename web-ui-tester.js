@@ -104,7 +104,7 @@ function followLink(item) {
 }
 
 /******************************************************************************/
-loadScript('jquery', 'http://staging.41where.com/jsTest/jquery-ui/js/jquery-1.7.1.min.js');
+	loadScript('jqueryui', 'https://raw.github.com/ConnorDoyle/web-ui-tester/master/jquery-ui/js/jquery-1.7.1.min.js');
 
 var delay = 500; // half a second
 function awaitJQ() {
@@ -117,6 +117,7 @@ function awaitJQ() {
 awaitJQ();
 
 function init() {
+	loadStyle('jqueryuistyle', 'https://raw.github.com/ConnorDoyle/web-ui-tester/master/jquery-ui/css/smoothness/jquery-ui-1.8.18.custom.css');
+	loadScript('jqueryui', 'https://raw.github.com/ConnorDoyle/web-ui-tester/master/jquery-ui/js/jquery-ui-1.8.18.custom.min.js');
 	console.log($('body'));
-	loadScript('jqueryui', 'http://staging.41where.com/jsTest/jquery-ui/js/jquery-ui-1.8.18.custom.min.js');
 }
