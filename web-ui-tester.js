@@ -18,7 +18,7 @@ function loadStyle(id, url) {
 	elem.setAttribute('type', 'text/css');
 	elem.setAttribute('id', id);
 	elem.innerHTML = "@import url("+url+");";
-	(doc.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(elem);
+	(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(elem);
 }
 
 // during a test run, this collection contains the remaining
